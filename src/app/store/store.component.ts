@@ -7,17 +7,23 @@ import { ProductRespository} from '../model/product.respository';
     selector: 'store',
     // moduleId: module.id,
     templateUrl: 'store.component.html',
+    styleUrls: ['store.component.scss']
 })
 
 export class StoreComponent {
+    public selectedCategory = null;
     constructor(private respository: ProductRespository) {}
 
     get products(): Product[] {
-        return this.respository.getProducts();
+        return this.respository.getProducts(this.selectedCategory);
     }
 
     get getCategories(): string[] {
         return this.respository.getCategories();
+    }
+
+    changeCategory(newCategory?: string) {
+        this.selectedCategory = newCategory;
     }
 
 }

@@ -7,7 +7,9 @@ import { StaticDataSource } from './static.datasource';
 
 @Injectable()
 export class ProductRespository {
+    // 产品
     private products: Product[] = [];
+    // 产品说明
     private categories: string[] = [];
 
     constructor(private datasource: StaticDataSource) {
